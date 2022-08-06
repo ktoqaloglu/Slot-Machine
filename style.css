@@ -1,0 +1,336 @@
+:root{
+    --slot1Rotate: 0;
+    --slot2Rotate: 0;
+    --slot3Rotate: 0;
+    --baseHeight: 175px;
+    --primaryColor: #fc6e00;
+    --secondaryColor: #fbde44;
+    --thirdColor: #83b942;
+  }
+html, body {
+  height: 100%;
+  perspective: 700;
+  background-color: #282a3a;
+}
+
+.wis-container{
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.machine{
+    top: 10em;
+    height: var(--baseHeight);
+    width: 520px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 10px solid gray;
+    background: linear-gradient(90deg, var(--thirdColor) 0%, var(--secondaryColor) 50%, var(--primaryColor) 100%);
+}
+
+.slots{
+  display: flex;
+  row-gap: 10px;
+  column-gap: 20px;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  height: 150px;
+    overflow: hidden;
+ 
+}
+
+.slot-machine1,.slot-machine2
+,.slot-machine3{
+  width: 153px;
+  height: 153px;
+  list-style: none;
+  padding: 0;
+  position:relative;
+  transform-style: preserve-3d;
+}
+
+.slot1_item,.slot2_item ,.slot3_item {
+  height: 150px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 96%;
+  background: rgba(255, 255, 255, 1);
+  backface-visibility: hidden;
+  border-radius: 20px;
+  gap: 10px;
+  border: 3px solid rgba(101, 101, 101,1);
+}
+
+.animation1{
+  animation-name: x-spin1;
+  animation-duration: 5s;
+  transition-duration: 3s;
+  transition-delay: 1s;
+}
+.animation2{
+  animation-name: x-spin2;
+  animation-duration: 5s;
+  transition-duration: 3s;
+  transition-delay: 1.5s;
+}
+.animation3{
+  animation-name: x-spin3;
+  animation-duration: 5s;
+  transition-duration: 3s;
+  transition-delay: 2s;
+}
+
+
+
+.image_item {
+    width: 120px;
+    height: 120px;
+}
+.item_span{visibility: visible; position: block;}
+
+/*Winner & Loser Modal*/
+
+.winner-modal,.loser-modal{
+  width: 650px;
+  height: 500px;
+  z-index: 10;
+  color: black;
+  border-radius: 5px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.winner-modal{
+  background-color: #a5e296;
+  display: none;
+}
+.loser-modal{
+  background-color: #eb8b93;;
+  display: none;
+}
+.modal-title{
+  font-size: 2em;
+  margin: 1em;
+  letter-spacing: 5px;
+}
+
+.wis-code{
+  background-color: rgba(245,245,245, .7);
+  padding: 0.5em 1.5em;
+  font-size: 2em;
+  border: 3px dotted;
+}
+.try-again-btn{
+  border: none;
+  padding: 1em 2em;
+  border-radius: 5px;  
+  color: #e55460;
+
+}
+
+@keyframes x-spin1 {
+  100% {
+    transform: rotateX(var(--slot1Rotate));
+  }
+}
+@keyframes x-spin2 {
+  100% {
+    transform: rotateX(var(--slot2Rotate));
+  }
+}
+@keyframes x-spin3 {
+  100% {
+    transform: rotateX(var(--slot3Rotate));
+  }
+}
+
+/* LEVER */
+#machine-lever {
+  position: relative;
+  top: 15em;
+  left: 1em;
+}
+
+#machine-lever .lever-base , .lever-chair, .lever-chair2 {
+
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  position: absolute;
+
+}
+
+#machine-lever > div.lever-base {
+  width: 1em;
+  height: 3em;
+}
+.lever-chair{
+  background: linear-gradient(to bottom, #a2a3a7 0%, #fefefe 35%, #2e2a2b 100%);
+    width: 1.5em;
+    height: 4em;
+    left: 0.50em;
+    top: -17em;
+}
+.lever-chair2{
+  background: linear-gradient(to bottom, #a2a3a7 0%, #fefefe 35%, #2e2a2b 100%);
+    width: 1em;
+    height: 3em;
+    left: 2em;
+    top: -16.7em;
+}
+
+
+#lever-bar {
+    height: 6em;
+    width: 0.7em;
+    background: linear-gradient(to right, #a2a3a7 0%, #fefefe 35%, #2e2a2b 100%);
+    border-radius: 50%/3px;
+    position: absolute;
+    left: 1.87em;
+    bottom: 19em;
+
+}
+
+#lever-ball {
+  width: 2.5em;
+  height: 2.5em;
+  background: radial-gradient(circle at 25px 20px, var(--secondaryColor) 0%, var(--primaryColor) 100%);
+  border-radius: 50%;
+  position: absolute;
+  left: 0.85em;
+  cursor: pointer;
+  bottom: 24em;
+  z-index: 9;
+
+} 
+
+.downBall{
+	animation-name: ballDown;
+  	animation-duration: 1s;
+}
+
+.downBar {
+	animation-name: barDown;
+  	animation-duration: 1s;
+}
+.wis-img-item{
+	height: 80px;
+	width: 80px;
+}
+
+@keyframes ballDown {
+	0% {
+		bottom:24em;
+	}
+	50% {
+		bottom: 20em;
+	}
+	100%{
+		bottom:24em;
+	}
+}
+@keyframes barDown{
+	0% {
+		height: 6em;
+	}
+	50% {
+		height: 0.5em;
+	}
+	100% {
+		height: 6em;
+	}
+}
+/*Laver*/
+
+/*Header Start*/
+
+.wis-h-main {
+    background-color: var(--primaryColor);
+    border: 5px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    position: absolute;
+    top: -10em;
+    width: 100%;
+    left: -1em;
+    z-index: 3;
+
+}
+
+.wis-blink-border {
+    background-color: var(--secondaryColor);
+    height: 100%;
+    border: 10px dotted var(--thirdColor);
+    padding: 5px;
+    border-radius: 2px;
+    outline: 5px solid var(--secondaryColor);
+    width: 93%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.wis-h-text {
+    font-size: 3em;
+    text-transform: uppercase;
+    color: #f00;
+    text-shadow: 1px 1px 1px #f00, 1px 2px 1px #f00, 1px 3px 1px #f00, 1px 4px 1px #f00, 1px 5px 1px #f00, 1px 6px 1px #f00, 1px 10px 5px rgb(16 16 16 / 50%), 1px 15px 10px rgb(16 16 16 / 40%), 1px 20px 30px rgb(16 16 16 / 30%), 1px 25px 50px rgb(16 16 16 / 20%);
+}
+
+.wis-h-rleg, .wis-h-lleg {
+    width: 1.5em;
+    height: 4em;
+    z-index: -1;
+    background: rgb(125,125,125);
+    background: linear-gradient(90deg, rgba(125,125,125,1) 0%, rgba(253,253,251,1) 46%, rgba(125,125,125,1) 100%);
+}
+
+.wis-h-lleg {
+    position: absolute;
+    top: -4.5em;
+    left: 2em;
+    z-index: -0;
+}
+
+.wis-h-rleg {
+  position: absolute;
+    top: -4.5em;
+    right: 2em;
+    z-index: -0;
+}
+/*Header End*/
+
+.item_span{
+  visibility: hidden;
+  position: absolute;
+}
+
+/*Info Scene*/
+.wis-txt {
+    font-family: Open Sans, Arial, San-serif;
+    font-size: 1.5em;
+    margin-top: 2em;
+    position: relative;
+    bottom: -7em;
+}
+.wis-starter-txt {
+    background-image: linear-gradient(to bottom, #ff5823, #ff6a1b, #ff7a11, #ff8a07, #ff9900);
+    padding: 1em;
+    width: 100%;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    border-radius: 10px;
+}
+
