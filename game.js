@@ -25,7 +25,7 @@ function slotMachine(){
     /*Degiskenler*/    
   
     /*Kampanyadan bu şekilde gelecek veriler.*/
-    var oc5 = 'https://i.hizliresim.com/1d42mzu.png,5,https://i.hizliresim.com/1d42mzu.png,5,https://i.hizliresim.com/1d42mzu.png,10,https://i.hizliresim.com/1d42mzu.png,10,https://i.hizliresim.com/1d42mzu.png,5,https://i.hizliresim.com/1d42mzu.png,5,https://i.hizliresim.com/1d42mzu.png,5,https://i.hizliresim.com/1d42mzu.png,5';
+    var oc5 ='https://raw.githubusercontent.com/ktoqaloglu/Slot-Machine/master/200x200.png,10,https://raw.githubusercontent.com/ktoqaloglu/Slot-Machine/master/200x200.png,5,https://raw.githubusercontent.com/ktoqaloglu/Slot-Machine/master/200x200.png,10,https://raw.githubusercontent.com/ktoqaloglu/Slot-Machine/master/200x200.png,20';
         totalObj = oc5.split(','),
         spliterC = 0;
     var counterDislpay = document.querySelector('#counter-display');
