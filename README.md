@@ -1,6 +1,6 @@
 # Slot-Machine
 
-
+Screenshots: https://github.com/ktoqaloglu/Slot-Machine/issues/1
 
 
 ## Kullanılabilir Özellikler:
