@@ -18,3 +18,7 @@
 Notes:
 
 The design is not responsive, I will push an update for it next time.
+
+##Blog Post (Only Turkish)
+
+<a href="https://kodlayiruk.com/javascript-ile-slot-makinesi-vanilla-js/">Javascript Slot Majinesi (Vanilla JS)</a>
