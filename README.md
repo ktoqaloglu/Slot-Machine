@@ -10,7 +10,7 @@
 
 ## Blog Post (Only Turkish)
 
-<a href="https://kodlayiruk.com/javascript-ile-slot-makinesi-vanilla-js/">Javascript Slot Majinesi (Vanilla JS)</a>
+<a href="https://kodlayiruk.com/javascript-ile-slot-makinesi-vanilla-js/">Javascript Slot Makinesi (Vanilla JS)</a>
 
 ## Screenshots:
 
