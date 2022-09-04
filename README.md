@@ -8,6 +8,10 @@
 <li>Winner Screen | Loser Screen</li>
 </ul>
 
+## Blog Post (Only Turkish)
+
+<a href="https://kodlayiruk.com/javascript-ile-slot-makinesi-vanilla-js/">Javascript Slot Majinesi (Vanilla JS)</a>
+
 ## Screenshots:
 
 ![slotmachine](https://user-images.githubusercontent.com/51473263/183242097-86ac747e-3d76-419c-8c68-966bd9e581f0.png)
@@ -19,6 +23,4 @@ Notes:
 
 The design is not responsive, I will push an update for it next time.
 
-## Blog Post (Only Turkish)
 
-<a href="https://kodlayiruk.com/javascript-ile-slot-makinesi-vanilla-js/">Javascript Slot Majinesi (Vanilla JS)</a>
