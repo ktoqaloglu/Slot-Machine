@@ -1,5 +1,5 @@
 function slotMachine(){  
-    /*Degiskenler*/
+    /*Degiskenler Start*/
   var machine = document.querySelector('.machine');
   var slotMac1 = document.querySelector('.slot-machine1');
   var slotMac2 = document.querySelector('.slot-machine2');
@@ -7,7 +7,7 @@ function slotMachine(){
   var leverBall = document.querySelector('#lever-ball');  
   var leverBar = document.querySelector('#lever-bar');  
   var wisText = document.querySelector('.wis-txt');
-  var gameCount = 2;
+  var gameCount = 3;
   var items = [],
       winRates = [],
       totalWRates = 0;
@@ -22,14 +22,14 @@ function slotMachine(){
         xAngle2,
         xAngle3;
   
-    /*Degiskenler*/    
+    /*Degiskenler END*/    
   
-    /*Kampanyadan bu şekilde gelecek veriler.*/
+    /*Items Start*/
     var oc5 ='https://raw.githubusercontent.com/ktoqaloglu/Slot-Machine/master/200x200.png,10,https://raw.githubusercontent.com/ktoqaloglu/Slot-Machine/master/200x200.png,5,https://raw.githubusercontent.com/ktoqaloglu/Slot-Machine/master/200x200.png,10,https://raw.githubusercontent.com/ktoqaloglu/Slot-Machine/master/200x200.png,20';
         totalObj = oc5.split(','),
         spliterC = 0;
-    var counterDislpay = document.querySelector('#counter-display');
-  /*Hesap Fonksiyonları*/
+    /*Items END*/
+  /*Hesaplama Fonksiyonları*/
   
   function compare(value1, operator, value2) {
   switch (operator) {
@@ -81,7 +81,6 @@ function slotMachine(){
       <li class="slot3_item"><img class="image_item" src='`+items[index]+`'/><span class='item_span'">`+index+`</span></li>
       `);
     }
-    counterDislpay.textContent = gameCount;
   }
   
   
@@ -134,21 +133,16 @@ function slotMachine(){
     slotMac3.classList.remove('animation3');
     checkWinner();
   });
-  
   }
   
   function  spin(){
-  
-  
   /*Degree Per By Item*/
-  
   var perByItem = 360 / items.length;
   var winnerVal = 0;
   
   if(totalWRates < 100){
     var loserRate = totalWRates + (100 - totalWRates);
   }
-  
   
   for(let index = 0;index<items.length;index++){
     if(index == 0){
@@ -174,39 +168,22 @@ function slotMachine(){
     degree3 =  (360 + (perByItem * randomInt(5,6))) + 'deg';
   }
   
-  console.table(winRates);
-  console.log(winRates[items.length-1]);
-  
-  
   slot1Spin();
   slot2Spin();
   slot3Spin();
-  
-  
-  console.log('loser Rate: '+loserRate);
-  console.log('Total W Rate: '+totalWRates);
-  console.log('Random: ' +rnd);
-  console.log('degree1: '+ degree1);
-  console.log('degree2: '+ degree2);
-  console.log('degree3: '+ degree3);
   }
-  
   
   function checkWinner(){
   
-    var firstSlot = slotMac1.getBoundingClientRect();
-      var secondSlot = slotMac2.getBoundingClientRect();
-      var lastSlot = slotMac3.getBoundingClientRect();
-      var loserModal = document.querySelector('.loser-modal');
-    var winnerModal = document.querySelector('.winner-modal');
+    var firstSlot = slotMac1.getBoundingClientRect(),
+        secondSlot = slotMac2.getBoundingClientRect(),
+        lastSlot = slotMac3.getBoundingClientRect(),
+        loserModal = document.querySelector('.loser-modal'),
+        winnerModal = document.querySelector('.winner-modal'),
   
-      var r1 = document.elementFromPoint(firstSlot.x+(firstSlot.width/2),firstSlot.y+(firstSlot.height/2+10));
-      var r2 = document.elementFromPoint(secondSlot.x+(secondSlot.width/2),secondSlot.y+(secondSlot.height/2+10));
-      var r3 = document.elementFromPoint(lastSlot.x+(lastSlot.width/2),lastSlot.y+(lastSlot.height/2+10));
-  
-      console.log('İlk: '+r1.parentElement.textContent);
-      console.log('İkinci: ' + r2.parentElement.textContent);
-      console.log('Son: ' + r3.parentElement.textContent);
+      r1 = document.elementFromPoint(firstSlot.x+(firstSlot.width/2),firstSlot.y+(firstSlot.height/2+10)),
+      r2 = document.elementFromPoint(secondSlot.x+(secondSlot.width/2),secondSlot.y+(secondSlot.height/2+10)),
+      r3 = document.elementFromPoint(lastSlot.x+(lastSlot.width/2),lastSlot.y+(lastSlot.height/2+10));
     
     setTimeout(() => {
       if (r1.parentElement.textContent == r2.parentElement.textContent && r1.parentElement.textContent == r3.parentElement.textContent && rnd <= totalWRates) {
@@ -225,7 +202,6 @@ function slotMachine(){
         var againBtn = document.querySelector('.try-again-btn');
         if(gameCount > 0){
           gameCount--;
-          counterDislpay.innerHTML = gameCount;
           againBtn.addEventListener('click', function () {
             rnd = randomInt(0, 100);
   
@@ -238,7 +214,6 @@ function slotMachine(){
             slotMac2.style = '';
             slotMac3.style = '';
             spin();
-            console.log('kalan oyun hakkı: ' + gameCount);
             wisText.innerHTML = "<span class='wis-starter-txt'> You can spin "+gameCount+" more times.</span>"
           });
         }else{
@@ -259,14 +234,5 @@ function slotMachine(){
     slotMac2.classList.add('animation2');
     slotMac3.classList.add('animation3');
   });
-  
-  /*  machine[index].style.transform = 'rotateX('+degree1+')';*/
-  
-  
-  /*
-    machine[index].classlist.add('animation');
-     setTimeout(() => {
-       machine.classlist.remove('animation');    
-     }, 5000);*/
   }
   slotMachine();
